@@ -41,11 +41,11 @@ public class DriverSingleton {
     }
 
     public static ChromeOptions options(){
-        String downloadPath = "C:\\Users\\Alex\\IdeaProjects\\HerokuappPageObject\\downloadedFiles";
+        String downloadPath = "\\downloadedFiles";
         ChromeOptions options = new ChromeOptions();
         HashMap<String, Object> chromePrefs = new HashMap<>();
         chromePrefs.put("profile.default_content_settings.popups", 0);
-        chromePrefs.put("download.default_directory", downloadPath);
+        chromePrefs.put("download.default_directory", System.getProperty("user.dir") + downloadPath);
         options.setExperimentalOption("prefs", chromePrefs);
         return options;
     }

@@ -10,8 +10,6 @@ public class DownloadTest extends BaseTest {
     private File foundedFile;
     DownloadService downloadService;
 
-
-
     @Test
     public void verifyDownloadTest() throws InterruptedException {
         downloadService = new DownloadService();
@@ -26,8 +24,8 @@ public class DownloadTest extends BaseTest {
 
     public boolean checkFileInSystem() {
         String fileNameOnPage = downloadService.checkFile();
-        String folderPath = "C:\\Users\\Alex\\IdeaProjects\\HerokuappPageObject\\downloadedFiles";
-        File folder = new File(folderPath);
+        String folderPath = "\\downloadedFiles";
+        File folder = new File(System.getProperty("user.dir") + folderPath);
         File[] listOfFiles = folder.listFiles();
 
         for (File listOfFile : listOfFiles) {
